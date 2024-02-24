@@ -1,4 +1,4 @@
-import setScoreGame from "./funcionalities/scoreGame.js";
+import setGameScore from "./funcionalities/gameScore.js";
 import runGame, { returnToGame } from "./game.js";
 import searchDataset from "./helpers/searchDataset.js";
 import toggleModalRules from "./helpers/toggleModalRules.js";
@@ -7,7 +7,7 @@ const $secsWrapper = document.getElementById("secs-wrapper");
 let chooseOptionsIsActive;
 
 document.addEventListener("DOMContentLoaded", () => {
-  setScoreGame();
+  setGameScore();
   setTimeout(() => {
     document.getElementById("s-loader").classList.add("d-none");
     chooseOptionsIsActive = true;

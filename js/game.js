@@ -1,5 +1,5 @@
 import randomHouseSelect from "./funcionalities/randomHouseSelect.js";
-import setScoreGame from "./funcionalities/scoreGame.js";
+import setGameScore from "./funcionalities/gameScore.js";
 import setTheWinner from "./funcionalities/setTheWinner.js";
 
 const $board = document.getElementById("board"),
@@ -120,8 +120,8 @@ const runGame = (playerSelect) => {
   let houseSelect = randomHouseSelect(),
     winner = setTheWinner(playerSelect, houseSelect);
 
-  if (winner === "player") setScoreGame(1);
-  if (winner === "house") setScoreGame(-1);
+  if (winner === "player") setGameScore(1);
+  if (winner === "house") setGameScore(-1);
   resultsScreen(playerSelect, houseSelect, winner);
 };
 

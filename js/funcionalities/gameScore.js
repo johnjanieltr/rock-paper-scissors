@@ -1,6 +1,6 @@
 const $scoreNumber = document.getElementById("score-number");
 
-const setScoreGame = (score = undefined) => {
+const setGameScore = (score = undefined) => {
   let gameScore;
 
   if (!score) {
@@ -49,4 +49,4 @@ const setScoreGame = (score = undefined) => {
   );
 };
 
-export default setScoreGame;
+export default setGameScore;
