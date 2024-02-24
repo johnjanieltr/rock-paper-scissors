@@ -24,7 +24,6 @@ document.addEventListener("click", (e) => {
 
   if (etm("#rules-btn")) toggleModalRules();
   if (etm("#close-btn") || etm("#close-btn *")) toggleModalRules();
-
   if (etm(".opt-base") || etm(".opt-base *")) {
     if (chooseOptionsIsActive) {
       runGame(searchDataset(e.target).select);

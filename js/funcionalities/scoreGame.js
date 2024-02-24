@@ -31,7 +31,6 @@ const setScoreGame = (score = undefined) => {
       gameScore = localStorage.getItem("game-score");
       gameScore++;
       localStorage.setItem("game-score", gameScore);
-      setTimeout(() => ($scoreNumber.textContent = gameScore), 2500);
       return;
     }
 
@@ -41,7 +40,6 @@ const setScoreGame = (score = undefined) => {
       gameScore--;
       if (gameScore < 0) gameScore = 0;
       localStorage.setItem("game-score", gameScore);
-      setTimeout(() => ($scoreNumber.textContent = gameScore), 500);
       return;
     }
   }
