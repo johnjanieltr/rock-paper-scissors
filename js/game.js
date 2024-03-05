@@ -125,4 +125,8 @@ const runGame = (playerSelect) => {
   resultsScreen(playerSelect, houseSelect, winner);
 };
 
-export default runGame;
+export default {
+  runGame,
+  returnToGame,
+  resultsScreen,
+};

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="robots" content="index, follow" />
     <meta name="description" content="Rock paper scissors game" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,8 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/main.css" />
-    <link rel="stylesheet" href="./assets/utilities.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/utilities.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
@@ -21,19 +22,15 @@
         <div class="score-sec__logo">
           <img src="./assets/images/logo.svg" alt="Game logo" />
         </div>
-        <div class="score-sec__count">
+        <div class="score-sec__counter">
           <span class="score-sec__name">score</span>
           <span class="score-sec__number" id="score-number"></span>
         </div>
       </div>
       <div class="game-sec" id="game">
         <div class="game-board" id="board">
-          <span id="bg-triangle">
-            <img
-              src="./assets/images/bg-triangle.svg"
-              alt="Board"
-              class="bg-triangle"
-            />
+          <span class="bg-triangle" id="bg-triangle">
+            <img src="./assets/images/bg-triangle.svg" alt="Board" />
           </span>
           <span
             class="opt-base opt-base--left opt-base--scale-hover"

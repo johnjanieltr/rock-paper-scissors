@@ -1,25 +1,34 @@
 :root {
-  --primary-bg-color: rgb(20, 21, 57);
-  --secundary-bg-color: rgb(31, 55, 86);
+  --primary-bg-color: #141539;
+  --secundary-bg-color: #1f3756;
   --bg-radial-gradient: radial-gradient(
     circle at top,
-    rgba(31, 55, 86, 1) 20%,
-    rgba(20, 21, 57, 1) 100%
+    #1f3756 20%,
+    #141539 100%
   );
-  --main-text-color: #fbfdfd;
+  --primary-text-color: #fbfdfd;
+  --secundary-text-color: #3b4363;
   --font-family: "Barlow Semi Condensed", sans-serif;
   --border-radius: 0.5rem;
-  --outline-style: 2.5px solid #606e85;
-  --colors-fluid-border: clamp(0.8125rem, 0.7169rem + 0.478vw, 1.125rem);
-  --opt-clamp: clamp(-4.2rem, -2.5023rem + -1.9885vw, -2.9rem);
-  --step--2: clamp(0.7813rem, 0.7755rem + 0.0287vw, 0.8rem);
-  --step--1: clamp(0.9375rem, 0.9184rem + 0.0956vw, 1rem);
-  --step-0: clamp(1.125rem, 1.0868rem + 0.1912vw, 1.25rem);
-  --step-1: clamp(1.35rem, 1.285rem + 0.325vw, 1.5625rem);
-  --step-2: clamp(1.62rem, 1.5181rem + 0.5096vw, 1.9531rem);
-  --step-3: clamp(1.9438rem, 1.7916rem + 0.761vw, 2.4413rem);
-  --step-4: clamp(2.3325rem, 2.1124rem + 1.1004vw, 3.0519rem);
-  --step-5: clamp(2.7994rem, 2.4887rem + 1.5535vw, 3.815rem);
+  --outline: 2.5px solid #606e85;
+  --letter-spacing: 0.1rem;
+  --fluid-border: clamp(0.8rem, 0.6486rem + 0.6458vi, 1.2rem);
+  --fluid-border-rs: clamp(0.8rem, 0.4594rem + 1.4531vi, 1.7rem);
+  --step--2: clamp(0.7813rem, 0.7742rem + 0.0303vi, 0.8rem);
+  --step--1: clamp(0.9375rem, 0.9138rem + 0.1009vi, 1rem);
+  --step-0: clamp(1.125rem, 1.0777rem + 0.2018vi, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2696rem + 0.3431vi, 1.5625rem);
+  --step-2: clamp(1.62rem, 1.4939rem + 0.5378vi, 1.9531rem);
+  --step-3: clamp(1.944rem, 1.7558rem + 0.8031vi, 2.4414rem);
+  --step-4: clamp(2.3328rem, 2.0607rem + 1.1608vi, 3.0518rem);
+  --step-5: clamp(2.7994rem, 2.4152rem + 1.6393vi, 3.8147rem);
+  /* 
+  Utopia links
+
+    https://utopia.fyi/type/calculator?c=375,18,1.2,1366,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+
+    https://utopia.fyi/clamp/calculator?a=375,1366,72—120|92.8—108.8|216—296|124.8—171.2|121.6—168|-43.2—-67.2|-32—-41.6|144—251.2|140.8—248|12.8—19.2|12.8—27.2|-24—36.8
+  */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -117,7 +126,9 @@ body {
   font-family: var(--font-family);
   color: var(--main-text-color);
   text-align: center;
+  /* background-color: var(--primary-bg-color); */
   background-color: var(--primary-bg-color);
+  background: var(--bg-radial-gradient);
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
@@ -128,57 +139,56 @@ body {
 
 .secs-wrapper {
   /* js set height */
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 1440px;
   min-height: 490px;
   max-height: 910px;
   padding: 2rem 0;
-  display: flex;
-  flex-flow: column nowrap;
-  background-color: var(--primary-bg-color);
-  background: var(--bg-radial-gradient);
+  margin-right: auto;
+  margin-left: auto;
+  /* border: 1px solid red; */
 }
 
 .score-sec {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  width: 80%;
-  min-width: 200px;
-  max-width: 576px;
+  width: clamp(220px, 80%, 576px);
   padding: 0.9rem;
   margin: 0 auto;
-  outline: var(--outline-style);
   border-radius: var(--border-radius);
+  outline: var(--outline);
   cursor: default;
 }
 
 .score-sec__logo {
-  width: clamp(5.8rem, 5.4941rem + 1.5296vw, 6.8rem);
+  width: clamp(5.8rem, 5.4216rem + 1.6145vi, 6.8rem);
   padding: 0.5rem 0;
 }
 
-.score-sec__count {
+.score-sec__counter {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  width: clamp(4.5rem, 3.5822rem + 4.5889vw, 7.5rem);
-  padding-top: clamp(0.3rem, 0.2388rem + 0.3059vw, 0.5rem);
-  color: #000;
+  width: clamp(4.5rem, 3.3648rem + 4.8436vi, 7.5rem);
+  padding: 0.55rem;
   background-color: #fff;
   border-radius: inherit;
 }
 
 .score-sec__name {
-  margin-bottom: clamp(0.2rem, 0.1082rem + 0.4589vw, 0.5rem);
-  letter-spacing: 0.09rem;
   font-size: var(--step--2);
+  color: var(--secundary-text-color);
   text-transform: uppercase;
-  color: #3b4363;
+  letter-spacing: var(--letter-spacing);
 }
 
 .score-sec__number {
   font-size: var(--step-4);
   font-weight: 700;
-  color: #3b4363;
+  color: var(--secundary-text-color);
 }
 
 .game-sec {
@@ -189,16 +199,17 @@ body {
   align-items: center;
 }
 
+/* game board */
 .game-board {
   position: relative;
-  width: 70%;
+  min-width: 150px;
+  width: 60%;
   margin-top: -1.5rem;
 }
 
 .bg-triangle {
   width: 100%;
   height: auto;
-  max-height: 220px;
   pointer-events: none;
 }
 
@@ -207,26 +218,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 6.7rem;
-  height: 6.5rem;
+  min-width: 6.7rem;
+  min-height: 6.5rem;
+  width: 58%;
+  height: 63%;
   background-color: #192845;
   border-radius: 50%;
   transition: transform 0.12s ease;
 }
 
 .opt-base--left {
-  top: -2.5rem;
-  left: -2.5rem;
+  top: -2.7rem;
+  left: -2.7rem;
 }
 
 .opt-base--right {
-  top: -2.5rem;
-  right: -2.5rem;
+  top: -2.7rem;
+  right: -2.7rem;
 }
 
 .opt-base--bottom {
   right: 0;
   bottom: -1.8rem;
+  bottom: -2rem;
   left: 0;
   margin: auto;
 }
@@ -254,13 +268,24 @@ body {
   width: 45%;
 }
 
+.rs-actions {
+  margin-top: 3.7rem;
+  width: 100%;
+}
+
+.bottom-sec {
+  display: block;
+}
+
+/* results board */
 .results-board {
   position: relative;
+  min-width: 240px;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  max-width: 810px;
+  max-width: 870px;
 }
 
 .results-board .opt-base {
@@ -269,15 +294,29 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+  min-width: 6.8rem;
+  min-height: 6.6rem;
+  width: 40vw;
+  height: 39vw;
 }
 
-.rs-actions {
-  margin-top: 3.7rem;
-  width: 100%;
+.results-board .opt {
+  border-width: var(--fluid-border-rs);
 }
 
-.bottom-sec {
-  display: block;
+.paper-color {
+  border: var(--fluid-border) solid #5671f5;
+  box-shadow: 2px 7px #3751d4, inset 0 5px #00000033;
+}
+
+.scissors-color {
+  border: var(--fluid-border) solid #ecac2c;
+  box-shadow: -2px 7px #da920c, inset 0 5px #00000033;
+}
+
+.rock-color {
+  border: var(--fluid-border) solid #de405d;
+  box-shadow: 0 7px #c7213f, inset 0 5px #00000033;
 }
 
 .btn {
@@ -290,13 +329,12 @@ body {
 
 .btn--rules {
   position: relative;
-  width: 7.8rem;
-  padding: 0.5em 0;
-  margin: 0 auto;
+  padding: 0.6em 2.6em;
+  margin: 0 auto 1.3rem;
   font-size: 16px;
-  font-weight: 700;
-  color: white;
-  outline: var(--outline-style);
+  font-weight: 600;
+  color: var(--primary-text-color);
+  outline: var(--outline);
 }
 
 .btn--play-again {
@@ -304,7 +342,7 @@ body {
   padding: 0.8rem 3rem;
   font-size: var(--step-0);
   color: #1b2e4e;
-  background-color: var(--main-text-color);
+  background-color: var(--primary-text-color);
 }
 
 .btn:hover {
@@ -315,7 +353,7 @@ body {
   display: inline-block;
   font-size: var(--step-5);
   font-weight: 700;
-  color: #fff;
+  color: var(--primary-text-color);
   text-transform: uppercase;
   margin-top: 0.2em;
   cursor: default;
@@ -350,16 +388,17 @@ body {
   width: 100%;
   height: 100%;
   padding: 4.2rem 2rem 3.5rem;
-  background-color: var(--main-text-color);
+  background-color: var(--primary-text-color);
   opacity: 0;
   transform: scale(0);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.15s ease, opacity 0.1s ease;
 }
 
 .modal-rules--is-active {
   opacity: 1;
   transform: scale(1);
-  transition: transform 0.25s cubic-bezier(0.07, 1.42, 0.96, 1.04);
+  transition: transform 0.2s cubic-bezier(0.07, 1.42, 0.96, 1.04),
+    opacity 0.1s ease;
 }
 
 .modal-rules__label {
@@ -433,21 +472,6 @@ body {
   }
 }
 
-.paper-color {
-  border: var(--colors-fluid-border) solid #5671f5;
-  box-shadow: 2px 7px #3751d4, inset 0 5px #00000033;
-}
-
-.scissors-color {
-  border: var(--colors-fluid-border) solid #ecac2c;
-  box-shadow: -2px 7px #da920c, inset 0 5px #00000033;
-}
-
-.rock-color {
-  border: var(--colors-fluid-border) solid #de405d;
-  box-shadow: 0 7px #c7213f, inset 0 5px #00000033;
-}
-
 .attribution {
   position: relative;
   width: 100%;
@@ -463,55 +487,62 @@ body {
   color: hsl(228, 45%, 44%);
 }
 
-@media (min-width: 320px) {
-  .app-wrapper {
-    padding: 2rem clamp(2rem, 0.75rem + 6.25vw, 3rem);
-  }
-
+@media (min-width: 375px) {
   .game-board {
-    width: clamp(12.5rem, 7.5rem + 25vi, 16.5rem);
-    margin-top: clamp(-1.5rem, -4.5997rem + 13.2253vw, 3.6rem);
+    width: clamp(13.5rem, 11.608rem + 8.0727vi, 18.5rem);
+    margin-top: clamp(-1.5rem, -2.9379rem + 6.1352vi, 2.3rem);
   }
 
   .opt-base {
-    width: clamp(8rem, 5.5rem + 12.5vi, 10rem);
-    height: clamp(7.8rem, 5.3rem + 12.5vi, 9.8rem);
+    width: clamp(7.8rem, 6.7026rem + 4.6821vi, 10.7rem);
+    height: clamp(7.6rem, 6.5026rem + 4.6821vi, 10.5rem);
   }
 
+  .opt-base--right,
   .opt-base--left {
-    top: var(--opt-clamp);
-    left: var(--opt-clamp);
+    top: clamp(-4.2rem, -2.1324rem + -2.4218vi, -2.7rem);
   }
 
   .opt-base--right {
-    top: var(--opt-clamp);
-    right: var(--opt-clamp);
+    right: clamp(-4.2rem, -2.1324rem + -2.4218vi, -2.7rem);
+  }
+
+  .opt-base--left {
+    left: clamp(-4.2rem, -2.1324rem + -2.4218vi, -2.7rem);
   }
 
   .opt-base--bottom {
-    bottom: -3rem;
+    right: 0;
+    left: 0;
+    bottom: clamp(-2.6rem, -1.773rem + -0.9687vi, -2rem);
+    margin: auto;
+  }
+
+  .results-board .opt-base {
+    width: clamp(9rem, 6.4647rem + 10.8174vi, 15.7rem);
+    height: clamp(8.8rem, 6.2647rem + 10.8174vi, 15.5rem);
   }
 }
 
 @media (min-width: 576px) {
   .secs-wrapper {
-    padding: 2rem 2rem;
+    padding: 2.5rem;
   }
 
   .btn--rules {
-    margin-left: auto;
-    margin-right: 0;
+    margin: 0 0 0 auto;
   }
 
   .modal-rules {
-    width: 20rem;
+    top: -0.7rem;
+    width: 22rem;
     height: auto;
-    padding: 2rem;
+    padding: 2rem 2rem 1.5rem;
     border-radius: var(--border-radius);
   }
 
   .modal-rules__label {
-    margin-bottom: 1.2em;
+    margin-bottom: 1.2rem;
     cursor: default;
   }
 
@@ -534,7 +565,7 @@ body {
   }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 750px) {
   .results-board {
     align-items: center;
   }

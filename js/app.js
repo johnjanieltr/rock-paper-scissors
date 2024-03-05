@@ -1,5 +1,5 @@
 import setGameScore from "./funcionalities/gameScore.js";
-import runGame, { returnToGame } from "./game.js";
+import game from "./game.js";
 import searchDataset from "./helpers/searchDataset.js";
 import toggleModalRules from "./helpers/toggleModalRules.js";
 
@@ -15,10 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   $secsWrapper.style.height = window.innerHeight + "px";
 });
 
-window.addEventListener("resize", () => {
-  $secsWrapper.style.height = window.innerHeight + "px";
-});
-
 document.addEventListener("click", (e) => {
   const etm = (selector) => e.target.matches(selector);
 
@@ -26,12 +22,12 @@ document.addEventListener("click", (e) => {
   if (etm("#close-btn") || etm("#close-btn *")) toggleModalRules();
   if (etm(".opt-base") || etm(".opt-base *")) {
     if (chooseOptionsIsActive) {
-      runGame(searchDataset(e.target).select);
+      game.runGame(searchDataset(e.target).select);
       chooseOptionsIsActive = false;
     }
   }
   if (etm("#play-again-btn")) {
-    returnToGame();
+    game.returnToGame();
     chooseOptionsIsActive = true;
   }
 });
