@@ -4,3 +4,6 @@
 .DS_Store
 design/
 *.txt
+
+node_modules
+dist
