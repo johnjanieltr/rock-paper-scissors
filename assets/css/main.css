@@ -9,10 +9,11 @@
   --primary-text-color: #fbfdfd;
   --secundary-text-color: #3b4363;
   --font-family: "Barlow Semi Condensed", sans-serif;
+  --app-max-width: 1560px;
   --border-radius: 0.5rem;
   --outline: 2.5px solid #606e85;
   --letter-spacing: 0.1rem;
-  --fluid-border: clamp(0.8rem, 0.6486rem + 0.6458vi, 1.2rem);
+  --fluid-border: clamp(0.9rem, 0.7865rem + 0.4844vi, 1.2rem);
   --fluid-border-rs: clamp(0.8rem, 0.4594rem + 1.4531vi, 1.7rem);
   --step--2: clamp(0.7813rem, 0.7742rem + 0.0303vi, 0.8rem);
   --step--1: clamp(0.9375rem, 0.9138rem + 0.1009vi, 1rem);
@@ -23,11 +24,9 @@
   --step-4: clamp(2.3328rem, 2.0607rem + 1.1608vi, 3.0518rem);
   --step-5: clamp(2.7994rem, 2.4152rem + 1.6393vi, 3.8147rem);
   /* 
-  Utopia links
-
-    https://utopia.fyi/type/calculator?c=375,18,1.2,1366,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
-
-    https://utopia.fyi/clamp/calculator?a=375,1366,72—120|92.8—108.8|216—296|124.8—171.2|121.6—168|-43.2—-67.2|-32—-41.6|144—251.2|140.8—248|12.8—19.2|12.8—27.2|-24—36.8
+    Utopia links
+      https://utopia.fyi/type/calculator?c=375,18,1.2,1366,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+      https://utopia.fyi/clamp/calculator?a=375,1366,-43.2—-67.2|-32—-41.6|-24—36.8|14.4—19.2|12.8—27.2|72—120|92.8—108.8|123.2—168|126.4—171.2|140.8—248|144—251.2|216—296
   */
 }
 
@@ -141,7 +140,7 @@ body {
   /* js set height */
   display: flex;
   flex-flow: column nowrap;
-  max-width: 1440px;
+  max-width: var(--app-max-width);
   min-height: 490px;
   max-height: 910px;
   padding: 2rem 0;
@@ -195,7 +194,7 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -249,8 +248,16 @@ body {
   transform: scale(0.95);
 }
 
-/* .opt-base__msg {
-} */
+.opt-base__msg {
+  position: absolute;
+  bottom: -3rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--primary-text-color);
+  text-wrap: nowrap;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing);
+}
 
 .opt {
   display: flex;
@@ -269,7 +276,7 @@ body {
 }
 
 .rs-actions {
-  margin-top: 3.7rem;
+  margin-top: 6.55rem;
   width: 100%;
 }
 
@@ -280,9 +287,9 @@ body {
 /* results board */
 .results-board {
   position: relative;
-  min-width: 240px;
-  width: 100%;
   display: flex;
+  width: clamp(240px, 100%, 870px);
+  margin-top: 1.5rem;
   flex-flow: row wrap;
   justify-content: space-around;
   max-width: 870px;
@@ -355,7 +362,6 @@ body {
   font-weight: 700;
   color: var(--primary-text-color);
   text-transform: uppercase;
-  margin-top: 0.2em;
   cursor: default;
   letter-spacing: 0.1rem;
 }
@@ -494,8 +500,8 @@ body {
   }
 
   .opt-base {
-    width: clamp(7.8rem, 6.7026rem + 4.6821vi, 10.7rem);
-    height: clamp(7.6rem, 6.5026rem + 4.6821vi, 10.5rem);
+    width: clamp(7.9rem, 6.8405rem + 4.5207vi, 10.7rem);
+    height: clamp(7.7rem, 6.6405rem + 4.5207vi, 10.5rem);
   }
 
   .opt-base--right,
@@ -577,8 +583,14 @@ body {
   .results-board #select-1-base {
     order: 1;
   }
+
   .results-board #select-2-base {
     order: 3;
+  }
+
+  .opt-base__msg {
+    top: -3.7rem;
+    font-size: var(--step-0);
   }
 
   .rs-actions {

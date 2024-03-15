@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("s-loader").classList.add("d-none");
     chooseOptionsIsActive = true;
   }, 2000);
+});
+
+window.addEventListener("load", () => {
   $secsWrapper.style.height = window.innerHeight + "px";
 });
 

@@ -11,11 +11,15 @@ const $board = document.getElementById("board"),
   $select2Base = document.getElementById("select-2-base"),
   $select3Base = document.getElementById("select-3-base"),
   $rsActions = document.getElementById("rs-actions"),
-  $resultMsg = document.getElementById("result-msg");
+  $resultMsg = document.getElementById("result-msg"),
+  $optBaseMsgs = document.querySelectorAll(".opt-base__msg");
 
 const resultsScreen = (playerSelect, houseSelect, winner) => {
   $board.classList.remove("game-board");
   $board.classList.add("results-board");
+
+  $optBaseMsgs[0].classList.remove("d-none");
+  $optBaseMsgs[1].classList.remove("d-none");
 
   $bgTriangle.classList.add("d-none");
   $select3Base.classList.add("d-none");
@@ -87,6 +91,9 @@ const resultsScreen = (playerSelect, houseSelect, winner) => {
 export const returnToGame = () => {
   $board.classList.remove("results-board");
   $board.classList.add("game-board");
+
+  $optBaseMsgs[0].classList.add("d-none");
+  $optBaseMsgs[1].classList.add("d-none");
 
   $resultMsg.textContent = "";
   $rsActions.classList.add("d-none");
