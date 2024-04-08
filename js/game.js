@@ -1,6 +1,6 @@
-import randomHouseSelect from "./funcionalities/randomHouseSelect.js";
-import setGameScore from "./funcionalities/gameScore.js";
-import setTheWinner from "./funcionalities/setTheWinner.js";
+import randomHouseSelect from "./functionalities/randomHouseSelect.js";
+import setGameScore from "./functionalities/gameScore.js";
+import setTheWinner from "./functionalities/setTheWinner.js";
 
 const $board = document.getElementById("board"),
   $bgTriangle = document.getElementById("bg-triangle"),

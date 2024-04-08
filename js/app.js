@@ -1,4 +1,4 @@
-import setGameScore from "./funcionalities/gameScore.js";
+import setGameScore from "./functionalities/gameScore.js";
 import game from "./game.js";
 import searchDataset from "./helpers/searchDataset.js";
 import toggleModalRules from "./helpers/toggleModalRules.js";
