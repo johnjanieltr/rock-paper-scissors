@@ -5,14 +5,14 @@ const setGameScore = (score = undefined) => {
 
   if (!score) {
     if (!localStorage.getItem("game-score")) {
-      /* run this if the user is playing for the first time */
+      // run this if the user is playing for the first time
       gameScore = 0;
       localStorage.setItem("game-score", gameScore);
       $scoreNumber.textContent = gameScore;
       return;
     }
 
-    /* run this if the user has played before */
+    // run this if the user has played before
     gameScore = localStorage.getItem("game-score");
     if (isNaN(gameScore)) {
       console.error("local storage punctuation error");
@@ -27,7 +27,7 @@ const setGameScore = (score = undefined) => {
 
   if (score) {
     if (score === 1) {
-      /* run this to add 1 point (win) */
+      // run this to add 1 point (win)
       gameScore = localStorage.getItem("game-score");
       gameScore++;
       localStorage.setItem("game-score", gameScore);
@@ -35,7 +35,7 @@ const setGameScore = (score = undefined) => {
     }
 
     if (score === -1) {
-      /* run this to subtract 1 point (lose) */
+      // run this to subtract 1 point (lose)
       gameScore = localStorage.getItem("game-score");
       gameScore--;
       if (gameScore < 0) gameScore = 0;

@@ -1,6 +1,7 @@
-import randomHouseSelect from "./functionalities/randomHouseSelect.js";
-import setGameScore from "./functionalities/gameScore.js";
-import setTheWinner from "./functionalities/setTheWinner.js";
+import randomHouseSelect from "./js/randomHouseSelect.js";
+import setTheWinner from "./js/setTheWinner.js";
+import setGameScore from "./js/gameScore.js";
+import optSvgRenders from "./js/optSvgRenders.js";
 
 const $board = document.getElementById("board"),
   $bgTriangle = document.getElementById("bg-triangle"),
@@ -12,15 +13,25 @@ const $board = document.getElementById("board"),
   $select3Base = document.getElementById("select-3-base"),
   $rsActions = document.getElementById("rs-actions"),
   $resultMsg = document.getElementById("result-msg"),
-  $optBaseMsgs = document.querySelectorAll(".opt-base__msg");
+  $optBaseMsgs = document.querySelectorAll(".opt-base__label");
+
+const runGame = (playerSelect) => {
+  let houseSelect = randomHouseSelect(),
+    winner = setTheWinner(playerSelect, houseSelect);
+
+  if (winner === "player") setGameScore(1);
+  if (winner === "house") setGameScore(-1);
+  resultsScreen(playerSelect, houseSelect, winner);
+};
 
 const resultsScreen = (playerSelect, houseSelect, winner) => {
+  // change the view from game board mode to results board mode
   $board.classList.remove("game-board");
   $board.classList.add("results-board");
-
+  // opt labels are visible
   $optBaseMsgs[0].classList.remove("d-none");
   $optBaseMsgs[1].classList.remove("d-none");
-
+  // hide all visible board elements
   $bgTriangle.classList.add("d-none");
   $select3Base.classList.add("d-none");
   $select1.classList.add("d-none");
@@ -28,36 +39,36 @@ const resultsScreen = (playerSelect, houseSelect, winner) => {
   $select3.classList.add("d-none");
   $select1.classList.add("cursor-default");
   $select2.classList.add("cursor-default");
-
+  // disable animations when hovering in the opts
   $select1Base.classList.remove("opt-base--scale-hover");
   $select2Base.classList.remove("opt-base--scale-hover");
 
   $rsActions.classList.add("v-hidden");
   $rsActions.classList.remove("d-none");
 
-  /* player select */
+  // render an svg in select 1 depending of the player selection
   if (playerSelect === "rock") {
     $select1.classList.remove("paper-color");
     $select1.classList.add("rock-color");
-    $select1.children[0].src = "./assets/images/icon-rock.svg";
+    $select1.innerHTML = optSvgRenders.rock;
   } else if (playerSelect === "paper") {
   } else if (playerSelect === "scissors") {
     $select1.classList.remove("paper-color");
     $select1.classList.add("scissors-color");
-    $select1.children[0].src = "./assets/images/icon-scissors.svg";
+    $select1.innerHTML = optSvgRenders.scissors;
   } else {
     return console.error("error");
   }
 
-  /* house select */
+  // render an svg in select 2 depending of the house selection
   if (houseSelect === "rock") {
     $select2.classList.remove("scissors-color");
     $select2.classList.add("rock-color");
-    $select2.children[0].src = "./assets/images/icon-rock.svg";
+    $select2.innerHTML = optSvgRenders.rock;
   } else if (houseSelect === "paper") {
     $select2.classList.remove("scissors-color");
     $select2.classList.add("paper-color");
-    $select2.children[0].src = "./assets/images/icon-paper.svg";
+    $select2.innerHTML = optSvgRenders.paper;
   } else if (houseSelect === "scissors") {
   } else {
     return console.error("error");
@@ -73,6 +84,7 @@ const resultsScreen = (playerSelect, houseSelect, winner) => {
     return console.error("error");
   }
 
+  // animations
   setTimeout(() => {
     $select1.classList.remove("d-none");
   }, 700);
@@ -89,47 +101,39 @@ const resultsScreen = (playerSelect, houseSelect, winner) => {
 };
 
 export const returnToGame = () => {
+  // change the view from game board mode to results board mode
   $board.classList.remove("results-board");
   $board.classList.add("game-board");
-
+  // opt labels are hidden
   $optBaseMsgs[0].classList.add("d-none");
   $optBaseMsgs[1].classList.add("d-none");
-
+  // clean the result message and hide the action buttons
   $resultMsg.textContent = "";
   $rsActions.classList.add("d-none");
-
-  $select1.children[0].src = "./assets/images/icon-paper.svg";
-  $select2.children[0].src = "./assets/images/icon-scissors.svg";
-  $select3.children[0].src = "./assets/images/icon-rock.svg";
-
+  // assigning each opt its default svg
+  $select1.innerHTML = optSvgRenders.paper;
+  $select2.innerHTML = optSvgRenders.scissors;
+  $select3.innerHTML = optSvgRenders.rock;
+  // enable animations when hovering in the opts
   $select1.classList.remove("cursor-default");
   $select2.classList.remove("cursor-default");
   $select1Base.classList.add("opt-base--scale-hover");
   $select2Base.classList.add("opt-base--scale-hover");
-
+  // remove non-default colors
   $select1.classList.remove("rock-color");
   $select1.classList.remove("scissors-color");
   $select2.classList.remove("paper-color");
   $select2.classList.remove("rock-color");
   $select3.classList.remove("paper-color");
   $select3.classList.remove("scissors-color");
-
+  // make elements visible
   $select3.classList.remove("d-none");
   $select3Base.classList.remove("d-none");
   $bgTriangle.classList.remove("d-none");
-
+  // set the default colors for each opt
   $select1.classList.add("paper-color");
   $select2.classList.add("scissors-color");
   $select3.classList.add("rock-color");
-};
-
-const runGame = (playerSelect) => {
-  let houseSelect = randomHouseSelect(),
-    winner = setTheWinner(playerSelect, houseSelect);
-
-  if (winner === "player") setGameScore(1);
-  if (winner === "house") setGameScore(-1);
-  resultsScreen(playerSelect, houseSelect, winner);
 };
 
 export default {
