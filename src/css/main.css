@@ -146,8 +146,7 @@ body {
   display: flex;
   flex-flow: column nowrap;
   max-width: var(--app-max-width);
-  min-height: 490px;
-  max-height: 910px;
+  min-height: 590px;
   padding: 2rem 0;
   margin-right: auto;
   margin-left: auto;

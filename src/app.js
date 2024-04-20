@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     $screenLoader.classList.add("d-none");
     chooseOptionsIsActive = true;
   }, 2000);
-  $secsWrapper.style.height = window.innerHeight + "px";
+  $secsWrapper.style.height = window.innerHeight + 1 + "px";
   setGameScore();
 });
 
