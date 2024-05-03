@@ -343,6 +343,11 @@ body {
   border-radius: var(--border-radius);
   cursor: pointer;
   text-transform: uppercase;
+  transition: opacity 0.4s ease;
+}
+
+.btn:hover {
+  opacity: 0.8;
 }
 
 .btn--rules {
@@ -361,10 +366,13 @@ body {
   font-size: var(--step-0);
   color: #1b2e4e;
   background-color: var(--primary-text-color);
+  opacity: 1;
+  transition: transform 0.4s ease;
 }
 
-.btn:hover {
-  opacity: 0.8;
+.btn--play-again:hover {
+  opacity: 1;
+  transform: scale(0.96);
 }
 
 .result-msg {
