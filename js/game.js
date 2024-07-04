@@ -1,7 +1,7 @@
-import randomHouseSelect from "./js/randomHouseSelect.js";
-import setTheWinner from "./js/setTheWinner.js";
-import setGameScore from "./js/gameScore.js";
-import optSvgRenders from "./js/optSvgRenders.js";
+import randomHouseSelect from "./randomHouseSelect.js";
+import setTheWinner from "./setTheWinner.js";
+import setGameScore from "./gameScore.js";
+import { rockSvg, paperSvg, scissorsSvg } from "./svgRenders.js";
 
 const $board = document.getElementById("board"),
   $bgTriangle = document.getElementById("bg-triangle"),
@@ -15,16 +15,16 @@ const $board = document.getElementById("board"),
   $resultMsg = document.getElementById("result-msg"),
   $optBaseMsgs = document.querySelectorAll(".opt-base__label");
 
-const runGame = (playerSelect) => {
+export const runGame = (playerSelect) => {
   let houseSelect = randomHouseSelect(),
     winner = setTheWinner(playerSelect, houseSelect);
 
   if (winner === "player") setGameScore(1);
   if (winner === "house") setGameScore(-1);
-  resultsScreen(playerSelect, houseSelect, winner);
+  showResultsScreen(playerSelect, houseSelect, winner);
 };
 
-const resultsScreen = (playerSelect, houseSelect, winner) => {
+export const showResultsScreen = (playerSelect, houseSelect, winner) => {
   // change the view from game board mode to results board mode
   $board.classList.remove("game-board");
   $board.classList.add("results-board");
@@ -50,12 +50,12 @@ const resultsScreen = (playerSelect, houseSelect, winner) => {
   if (playerSelect === "rock") {
     $select1.classList.remove("paper-color");
     $select1.classList.add("rock-color");
-    $select1.innerHTML = optSvgRenders.rock;
+    $select1.innerHTML = rockSvg;
   } else if (playerSelect === "paper") {
   } else if (playerSelect === "scissors") {
     $select1.classList.remove("paper-color");
     $select1.classList.add("scissors-color");
-    $select1.innerHTML = optSvgRenders.scissors;
+    $select1.innerHTML = scissorsSvg;
   } else {
     return console.error("error");
   }
@@ -64,11 +64,11 @@ const resultsScreen = (playerSelect, houseSelect, winner) => {
   if (houseSelect === "rock") {
     $select2.classList.remove("scissors-color");
     $select2.classList.add("rock-color");
-    $select2.innerHTML = optSvgRenders.rock;
+    $select2.innerHTML = rockSvg;
   } else if (houseSelect === "paper") {
     $select2.classList.remove("scissors-color");
     $select2.classList.add("paper-color");
-    $select2.innerHTML = optSvgRenders.paper;
+    $select2.innerHTML = paperSvg;
   } else if (houseSelect === "scissors") {
   } else {
     return console.error("error");
@@ -111,9 +111,9 @@ export const returnToGame = () => {
   $resultMsg.textContent = "";
   $rsActions.classList.add("d-none");
   // assigning each opt its default svg
-  $select1.innerHTML = optSvgRenders.paper;
-  $select2.innerHTML = optSvgRenders.scissors;
-  $select3.innerHTML = optSvgRenders.rock;
+  $select1.innerHTML = paperSvg;
+  $select2.innerHTML = scissorsSvg;
+  $select3.innerHTML = rockSvg;
   // enable animations when hovering in the opts
   $select1.classList.remove("cursor-default");
   $select2.classList.remove("cursor-default");
@@ -134,10 +134,4 @@ export const returnToGame = () => {
   $select1.classList.add("paper-color");
   $select2.classList.add("scissors-color");
   $select3.classList.add("rock-color");
-};
-
-export default {
-  runGame,
-  returnToGame,
-  resultsScreen,
 };

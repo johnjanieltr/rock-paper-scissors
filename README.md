@@ -1,21 +1,19 @@
-# Frontend Mentor - Rock, Paper, Scissors solution
+# Frontend Mentor - Rock, Paper, Scissors solución
 
-This is a solution to the [Rock, Paper, Scissors challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH).
+Esta es mi solución para el desafió [Rock, Paper, Scissors de Frontend Mentor](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH).
 
-![Rock, paper, scissors game preview image](./src/assets/preview.jpg)
+![Rock, paper, scissors game preview image](./assets/preview.jpg)
 
-## Overview
+## Descripción de desafió
 
-### The challenge
+Los usuarios deberían poder:
 
-Users should be able to:
+- Ver el diseño óptimo para el juego según el tamaño de pantalla de su dispositivo
+- Juega Piedra, Papel, Tijera contra la computadora
+- Mantener el estado de la puntuación después de actualizar el navegador _(opcional)_
+- **Bonus**: Juega Piedra, Papel, Tijera, Lagarto, Spock contra la computadora _(opcional)_
 
-- View the optimal layout for the game depending on their device's screen size
-- Play Rock, Paper, Scissors against the computer
-- Maintain the state of the score after refreshing the browser _(optional)_
-- **Bonus**: Play Rock, Paper, Scissors, Lizard, Spock against the computer _(optional)_
+## Enlaces
 
-### Links
-
-- Solution URL: [Github Repository](https://github.com/johnjanieltr/rock-paper-scissors-game)
-- Live Site URL: [Deployed in Github Pages](https://johnjanieltr.github.io/rock-paper-scissors-game/)
+- Ver aplicación desplegada: [https://johnjanieltr.github.io/rock-paper-scissors-game](https://johnjanieltr.github.io/rock-paper-scissors-game/)
+- Ver mi pagina: [https://johnjanieltr.github.io/](https://johnjanieltr.github.io)

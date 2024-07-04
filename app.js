@@ -1,4 +1,4 @@
-import game from "./game.js";
+import { runGame, returnToGame } from "./js/game.js";
 import setGameScore from "./js/gameScore.js";
 import searchDataset from "./js/searchDataset.js";
 import toggleModalRules from "./js/toggleModalRules.js";
@@ -9,7 +9,7 @@ const $screenLoader = document.getElementById("s-loader"),
 // this variable handles when it is available to choose an option (play the game)
 let chooseOptionsIsActive = false;
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     $screenLoader.classList.add("d-none");
     chooseOptionsIsActive = true;
@@ -28,13 +28,13 @@ document.addEventListener("click", (e) => {
   // click on options (rock paper or scissors)
   if (etm(".opt-base") || etm(".opt-base *")) {
     if (chooseOptionsIsActive) {
-      game.runGame(searchDataset(e.target).select);
+      runGame(searchDataset(e.target).select);
       chooseOptionsIsActive = false;
     }
   }
   // click on play again button of result screen
   if (etm("#play-again-btn")) {
-    game.returnToGame();
+    returnToGame();
     chooseOptionsIsActive = true;
   }
 });
